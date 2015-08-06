@@ -11,3 +11,5 @@ sudo echo \
 ATTRS{product}==\"Quirkbot*\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"
 SUBSYSTEM==\"tty\" ATTRS{product}==\"Quirkbot*\" SYMLINK+\"quirkbot%n\"" \
 > /etc/udev/rules.d/99-quirkbot.rules
+
+sudo udevadm control --reload-rules

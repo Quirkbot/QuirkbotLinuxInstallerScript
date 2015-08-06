@@ -13,3 +13,4 @@ To install the script directly from the web, run (you will need to input your ad
 ```
 sudo sh <(curl -s http://code.quirkbot.com/install/linux/quirkbot.sh)
 ```
+You will need to **log out** and then **log in** again in order for the changes to take effect.
