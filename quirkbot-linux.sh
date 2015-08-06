@@ -6,10 +6,15 @@
 sudo gpasswd -a `whoami` $(ls -l /dev/* | grep /dev/ttyS0 |awk '{print $4}');
 
 # Step two: add udev rules for Quirkbot devices
-sudo echo \
-"# Quirkbot
-ATTRS{product}==\"Quirkbot*\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"
-SUBSYSTEM==\"tty\" ATTRS{product}==\"Quirkbot*\" SYMLINK+\"quirkbot%n\"" \
-> /etc/udev/rules.d/99-quirkbot.rules
+echo "ATTRS{product}==\"Quirkbot*\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"" \
+| sudo tee /etc/udev/rules.d/99-quirkbot.rules
 
 sudo udevadm control --reload-rules
+
+clear
+echo ''
+echo ''
+echo 'Quirkbot installed!'
+echo 'Now please log out and then log in again for the changes to take effect.'
+echo ''
+echo ''
